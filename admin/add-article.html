@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Mahir Blog</title>
+    <link rel="stylesheet" href="../styles/add-article.css" />
+  </head>
+
+  <body>
+    <div id="sidebar">
+      <h2><a href="../index.html">Mahir Blog</a></h2>
+      <a href="../admin/dashboard.html">Beranda</a>
+      <a href="#">Tulis Artikel</a>
+      <a href="#">Pengaturan</a>
+    </div>
+    <div id="content">
+      <div id="navbar">
+        <div class="toggle-btn" onclick="toggleSidebar()">&#9776;</div>
+        <div class="right">
+          <input type="text" name="search" id="search" placeholder="Cari" />
+          <button id="logout-btn" onclick="logoutButton()">Logout</button>
+        </div>
+      </div>
+      <div>
+        <div class="content-dashboard">
+          <h1>Tulis Artikel</h1>
+          <form id="formArticle">
+            <label for="judul">Masukkan Judul</label>
+            <input type="text" name="judul" id="judul" />
+            <label for="penulis">Penulis</label>
+            <input type="text" name="penulis" id="penulis" />
+            <label for="tanggal">Tanggal</label>
+            <input type="date" name="tanggal" id="tanggal" />
+            <label for="tulisArticle">Tulis Artikel</label>
+            <textarea
+              name="tulisArticle"
+              id="article"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <button type="submit">Tambah Artikel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      const articleForm = document.getElementById("formArticle");
+
+      articleForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const titleInput = document.getElementById("judul");
+        const authorInput = document.getElementById("penulis");
+        const dateInput = document.getElementById("tanggal");
+        const articleInput = document.getElementById("article");
+
+        const title = titleInput.value.trim();
+        const author = authorInput.value.trim();
+        const date = dateInput.value.trim();
+        const article = articleInput.value.trim();
+
+        if (title === "" || author === "" || date === "" || article === "") {
+          alert("Inputan tidak boleh kosong");
+        } else {
+          const articles = getArticlesFromLocalStorage();
+          articles.push({
+            title: title,
+            author: author,
+            date: date,
+            article: article,
+          });
+          saveArticlesToLocalStorage(articles);
+          alert("Artikel berhasil ditambahkan");
+          window.location.href = "../admin/dashboard.html";
+        }
+      });
+
+      function getArticlesFromLocalStorage() {
+        const articlesJSON = localStorage.getItem("articles");
+        return articlesJSON ? JSON.parse(articlesJSON) : [];
+      }
+
+      function saveArticlesToLocalStorage(articles) {
+        localStorage.setItem("articles", JSON.stringify(articles));
+      }
+
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const content = document.getElementById("content");
+
+        if (sidebar.style.width === "250px") {
+          sidebar.style.width = "0px";
+          sidebar.style.display = "none";
+          content.style.marginLeft = "0px";
+        } else {
+          sidebar.style.width = "250px";
+          sidebar.style.display = "block";
+          sidebar.style.position = "absolute";
+          content.style.marginLeft = "250px";
+        }
+      }
+
+      function logoutButton() {
+        localStorage.removeItem("session");
+        alert("Logout berhasil");
+        window.location.href = "../auth/login.html"; // Redirect ke halaman login
+      }
+    </script>
+  </body>
+</html>
