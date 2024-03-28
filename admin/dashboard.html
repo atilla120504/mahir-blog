@@ -66,7 +66,7 @@
       </div>
     </div>
     <script>
-      const editedIndex = -1;
+      let editedIndex = -1;
       function closeModal() {
         modal.style.display = "none";
       }
@@ -117,10 +117,10 @@
           const row = document.createElement("tr");
 
           row.innerHTML = `
-      <td>${article.judul}</td>
-      <td>${article.artikel}</td>
-      <td>${article.penulis}</td>
-      <td>${article.tanggal}</td>
+      <td>${article.title}</td>
+      <td>${article.article}</td>
+      <td>${article.author}</td>
+      <td>${article.date}</td>
       <td>
         <button onclick="buttonEdit(${index})">Edit</button>
         <button onclick="buttonHapus(${index})">Hapus</button>
@@ -135,13 +135,13 @@
         modal.style.display = "block";
 
         const artikels = getArticlesFromLocalStorage();
-        let editedIndex = index;
+        editedIndex = index;
         const editedArtikels = artikels[editedIndex];
 
-        document.getElementById("judul").value = editedArtikels.judul;
-        document.getElementById("penulis").value = editedArtikels.penulis;
-        document.getElementById("tanggal").value = editedArtikels.tanggal;
-        document.getElementById("tulisArtikel").value = editedArtikels.artikel;
+        document.getElementById("judul").value = editedArtikels.title;
+        document.getElementById("penulis").value = editedArtikels.author;
+        document.getElementById("tanggal").value = editedArtikels.date;
+        document.getElementById("tulisArtikel").value = editedArtikels.article;
       }
 
       function saveEditedArtikels() {
@@ -162,12 +162,13 @@
           editedArtikel !== ""
         ) {
           const artikels = getArticlesFromLocalStorage();
+          console.log(artikels)
 
           artikels[editedIndex] = {
-            judul: editedJudul,
-            penulis: editedPenulis,
-            tanggal: editedTanggal,
-            artikel: editedArtikel,
+            title: editedJudul,
+            author: editedPenulis,
+            date: editedTanggal,
+            article: editedArtikel,
           };
 
           saveArtikelsToLocalStorage(artikels);
@@ -201,11 +202,11 @@
       }
 
       function saveArtikelsToLocalStorage(arg) {
-        localStorage.setItem("artikels", JSON.stringify(arg));
+        localStorage.setItem("articles", JSON.stringify(arg));
       }
 
       function getArticlesFromLocalStorage() {
-        let articlesJSON = localStorage.getItem("artikels");
+        let articlesJSON = localStorage.getItem("articles");
         return articlesJSON ? JSON.parse(articlesJSON) : [];
       }
     </script>
