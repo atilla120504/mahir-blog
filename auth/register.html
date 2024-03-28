@@ -74,6 +74,7 @@
               password: password,
             });
             alert("Student berhasil ditambahkan");
+            window.location.href = "../auth/login.html"
             document.forms["registerForm"].reset();
             
           }
@@ -99,11 +100,6 @@
         if (sessionStudent) {
           alert("Anda sudah login, harus Logout terlebih dahulu!");
           window.location.href = "../admin/dashboard.html";
-        } else {
-          students.push({ email: email, password: password });
-                    alert("Student berhasil ditambahkan!");
-                    simpanStudentsKeLocalStorage(students);
-                    window.location.href = "../auth/login.html"
         }
       });
 
