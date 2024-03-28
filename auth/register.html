@@ -9,6 +9,7 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
   <body>
     <div class="container">
       <div class="wrap-form" data-aos="fade-up" data-aos-duration="1500">
@@ -62,21 +63,20 @@
           const students = dapatkanStudentsDariLocalStorage();
           console.log(students);
 
-          const cekEmail = students.some((studnet) => studnet.email === email);
+          const cekEmail = students.some((student) => student.email === email);
 
           console.log(cekEmail);
 
           if (cekEmail) {
             alert("Email sudah terdaftar, gunakan email yang lain");
           } else {
-            studnets.push({
+            students.push({
               email: email,
               password: password,
             });
             alert("Student berhasil ditambahkan");
-            window.location.href = "../auth/login.html"
+            window.location.href = "../auth/login.html";
             document.forms["registerForm"].reset();
-            
           }
 
           simpanStudentsKeLocalStorage(students);
