@@ -11,28 +11,72 @@
       <div class="navbar">
         <div class="container">
           <h2>Mahir Blog</h2>
-          <div class="navigasi" id="navigasi">
-            
-          </div>
+          <div class="navigasi" id="navigasi"></div>
         </div>
       </div>
       <div class="content">
         <div class="container">
           <div class="content-area" id="content-area">
             <div class="card">
-              <h2>Judul</h2>
-              <p>Artikel</p>
-              <p><span>Penulis</span> | <span>Tanggal</span></p>
+              <h2>Sejarah Liberty Walk</h2>
+              <p>
+                ika kalian suka otomotif, khususnya dunia modifikasi, pastinya
+                familiar dengan nama Liberty Walk atau LBWK. Sejenis seperti
+                RWB, Rocket Bunny, dan sebagainya, body kit ini jadi salah satu
+                yang mengubah gaya modifikasi dunia. POPULAR STORIES Sejarah
+                Liberty Walk, Body Kit Asal Jepang Mengubah Dunia Modifikasi
+                Sejarah Liberty Walk, Body Kit Asal Jepang Mengubah Dunia
+                ModifikasiFerrari F40 garapan Liberty Walk (Foto : KabarOto &
+                Liberty Walk) Sejarah Liberty Walk, Body Kit Asal Jepang
+                Mengubah Dunia Modifikasi Deddy 3 January 2024 12:45
+                KabarOto.com - Jika kalian suka otomotif, khususnya dunia
+                modifikasi, pastinya familiar dengan nama Liberty Walk atau
+                LBWK. Sejenis seperti RWB, Rocket Bunny, dan sebagainya, body
+                kit ini jadi salah satu yang mengubah gaya modifikasi dunia.
+                ADVERTISEMENT x Orang yang berperan dalam kebangkitan Liberty
+                Walk ini adalah Wataru Kato. Liberty Walk atau kebanyakan
+                ditempel stiker kaca depan LB performance, awalnya merupakan
+                bengkel modifikasi di Jepang yang sudah berdiri sejak tahun
+                1993.
+              </p>
+              <p><span>Tildes</span> | <span>28-03-24</span></p>
             </div>
             <div class="card">
-              <h2>Judul</h2>
-              <p>Artikel</p>
-              <p><span>Penulis</span> | <span>Tanggal</span></p>
+              <h2>Sejarah Komputer</h2>
+              <p>
+                Sebagian besar kegiatan yang dilakukan manusia di era modern ini
+                dilakukan menggunakan komputer. Terlebih di saat pandemi seperti
+                ini, di mana seluruh aktivitas bertransformasi menjadi serba
+                online. Perangkat komputer yang awalnya ditujukan hanya sebagai
+                sarana penunjang pekerjaan, kini sudah menjadi suatu kebutuhan
+                yang wajib dimiliki oleh masyarakat. Sebelum dilengkapi oleh
+                fitur serba canggih seperti sekarang ini, perkembangan komputer
+                diawali dari sebuah inovasi sederhana yang lahir sejak tahun
+                1800-an. Artikel ini telah tayang di Kompas.com dengan judul
+                "Sejarah Komputer dan Perkembangannya dari Masa ke Masa", Klik
+                untuk baca
+              </p>
+              <p><span>Sjabiq</span> | <span>01-01-27</span></p>
             </div>
             <div class="card">
-              <h2>Judul</h2>
-              <p>Artikel</p>
-              <p><span>Penulis</span> | <span>Tanggal</span></p>
+              <h2>Apa itu AI dan bagaimana cara kerjanya?</h2>
+              <p>
+                AI memungkinkan komputer untuk bertindak dan merespons sesuatu
+                seperti manusia. Komputer dapat disuplai informasi dalam jumlah
+                besar dan dilatih untuk mengidentifikasi pola-pola dari
+                informasi tersebut, untuk membuat prediksi, memecahkan masalah,
+                bahkan belajar dari kesalahan mereka sendiri.Teknologi ini
+                berada di balik asisten virtual berbasis suara seperti Siri dan
+                Alexa. AI juga memungkinkan Spotify, Youtube, dan BBC iPlayer
+                menyarankan apa yang ingin Anda dengar atau tonton selanjutnya.
+                Selain itu, teknologi ini membantu Facebook dan Twitter
+                menentukan konten mana yang akan mereka tampilkan kepada
+                pengguna. AI memungkinkan Amazon menganalisis kebiasaan
+                berbelanja pelanggannya untuk merekomendasikan
+                pembelian-pembelian selanjutnya. Amazon juga memanfaatkan AI
+                untuk menindak ulasan-ulasan palsu.
+              </p>
+              <p><span>Rasya</span> | <span>47-89-98</span></p>
             </div>
           </div>
         </div>
@@ -41,61 +85,62 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-          const contentArea = document.getElementById("content-area")
-          const articles = getArticleFromLocalStorage()
+        const contentArea = document.getElementById("content-area");
+        const articles = getArticleFromLocalStorage();
 
-          articles.forEach((article, index) => {
-              console.log(index)
-              console.log(article)
+        articles.forEach((article, index) => {
+          console.log(index);
+          console.log(article);
 
-              const div = document.createElement("div")
-              div.classList = "card"
-              div.innerHTML = `
+          const div = document.createElement("div");
+          div.classList = "card";
+          div.innerHTML = `
               <h2>Judul: ${article.title}</h2>
               <p> ${article.article} </p>
               <p><span>Penulis: ${article.author}</span> | <span>Tanggal: ${article.date}</span></p>
-              `
-              contentArea.append(div)
-          })
+              `;
+          contentArea.append(div);
+        });
 
-          const navigasi = document.getElementById("navigasi")
+        const navigasi = document.getElementById("navigasi");
 
-          const login = document.createElement("button")
-          login.classList = "login"
-          login.innerText = "Login"
-          login.addEventListener("click", () => {
-              window.location.href = "./auth/login.html"
-          })
+        const login = document.createElement("button");
+        login.classList = "login";
+        login.innerText = "Login";
+        login.addEventListener("click", () => {
+          window.location.href = "./auth/login.html";
+        });
 
-          const register = document.createElement("button")
-          register.classList = "register"
-          register.innerText = "Daftar gratis"
-          register.addEventListener("click", () => {
-              window.location.href = "./auth/register.html"
-          })
+        const register = document.createElement("button");
+        register.classList = "register";
+        register.innerText = "Daftar gratis";
+        register.addEventListener("click", () => {
+          window.location.href = "./auth/register.html";
+        });
 
-          const dashboard = document.createElement("button")
-          dashboard.classList = "dashboard"
-          dashboard.innerText = "Dashboard"
-          dashboard.addEventListener("click", () => {
-              window.location.href = "./admin/dashboard.html"
-          })
+        const dashboard = document.createElement("button");
+        dashboard.classList = "dashboard";
+        dashboard.innerText = "Dashboard";
+        dashboard.addEventListener("click", () => {
+          window.location.href = "./admin/dashboard.html";
+        });
 
-          const userSession = getSessionFromLocalStorage()
+        const userSession = getSessionFromLocalStorage();
 
-          userSession ? navigasi.append(dashboard) : navigasi.append(login, register)
-      })
+        userSession
+          ? navigasi.append(dashboard)
+          : navigasi.append(login, register);
+      });
 
       function getArticleFromLocalStorage() {
-          const articlesJSON = localStorage.getItem("articles")
-          return articlesJSON ? JSON.parse(articlesJSON) : []
+        const articlesJSON = localStorage.getItem("articles");
+        return articlesJSON ? JSON.parse(articlesJSON) : [];
       }
 
       function getSessionFromLocalStorage() {
-          const sessionJSON = localStorage.getItem("session")
-          return sessionJSON ? JSON.parse(sessionJSON) : null
+        const sessionJSON = localStorage.getItem("session");
+        return sessionJSON ? JSON.parse(sessionJSON) : null;
       }
-
-  </script>
+    </script>
   </body>
 </html>
