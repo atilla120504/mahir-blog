@@ -15,7 +15,7 @@
       <div class="wrap-form" data-aos="fade-up" data-aos-duration="1500">
         <a href="../index.html" class="logo"></a>
         <div>
-          <h1>Register Akun</h1>
+          <h1 id="mahirBlog" style="text-align: center; cursor: pointer;">Mahir Blog</h1>
           <form id="registerForm">
             <label for="email">Email</label>
             <input
@@ -107,6 +107,11 @@
         const sessionJSON = localStorage.getItem("session");
         return sessionJSON ? JSON.parse(sessionJSON) : null;
       }
+
+      // Menambahkan event listener untuk menangani klik pada teks "Mahir Blog"
+      document.getElementById("mahirBlog").addEventListener("click", function() {
+        window.location.href = "../index.html";
+      });
     </script>
   </body>
 </html>
